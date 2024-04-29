@@ -1,0 +1,49 @@
+<div id="sidebar">
+  <!-- <div id="row1"></div> -->
+    <div id="sidebarHeader">
+        <div class="avatarContainer"><img width="50px" src="../../assets/images/Profile-PNG-File.png" alt="">
+        </div>
+        <div class="actionContainer">
+            <div class="icon">
+                <i class="fa-brands fa-nfc-symbol"></i>
+                <i class="fa-regular fa-message"></i>
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+        </div>
+    </div>
+    <div id="sidebarSearchbox">
+      &nbsp;&nbsp;<i class="fas fa-search"></i>
+        &nbsp;<input [(ngModel)]="searchText" type="text" placeholder="Search or Start a new chat" class="form-control-sm border-0 p-2 m-2"/>
+    </div>
+    <div id="sidebarContent">
+      <!-- <div id="noConversation"> -->
+        <!-- All chats are archieved -->
+        <div class="conversation" *ngFor="let conversation of (!searchText?conversations:filteredConversations)" (click)="conversationClicked.emit(conversation)">
+          
+          <div class="picture"><img width="50px" src="../../assets/images/Profile-PNG-File.png" alt=""></div>
+          <div class="content">
+            <div class="conversationHeader">
+              <div class="name">{{conversation.name}}</div>
+              <div class="time">{{conversation.time}}</div>
+            </div>
+            <div class="message">
+              <img *ngIf="!conversation.latestMessageRead" width="20px" src="../../assets/images/double-tick-svgrepo-com.svg" alt="">
+              <img *ngIf="conversation.latestMessageRead" width="20px" src="../../assets/images/double-tick-blue.svg" alt="">
+              {{conversation.latestMessage}}</div>
+          </div>
+      
+        </div>
+        <!-- <div class="conversation">
+          <div class="picture"><img width="50px" src="../../assets/images/Profile-PNG-File.png" alt=""></div>
+          <div class="content">
+            <div class="conversationHeader">
+              <div class="name">anbu</div>
+              <div class="time">8:21 AM</div>
+            </div>
+            <div class="message">See you tomorrow</div>
+          </div>
+        </div> -->
+        
+      </div>
+    </div>
+  <!-- </div> -->

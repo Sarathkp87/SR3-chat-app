@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sr3-chat-app';
+  conversation: any;
+
+  onConversationSelected(conversation: any){
+    this.conversation =conversation;
+  }
 }
